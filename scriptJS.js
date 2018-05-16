@@ -1,22 +1,3 @@
-function switchToHover(){
-  var element1=document.getElementById("meni1");
-  var element2=document.getElementById("meni2");
-  if(window.pageYOffset>=300){
-    element2.style.position="fixed";
-    element2.style.display="grid";
-    element2.style.top="0";
-    element2.style.width="100%";
-    element2.style.height="3em";
-    element1.style.position="static";
-    element1.style.visibility="hidden";
-  }
-  else{
-    element1.style.visibility="visible";
-    element2.style.position="static";
-    element2.style.display="none";
-  }
-}
-
 var c = ["JavaScript", "W3 Schools", "CodeAcademy", "Računalništvo"];
 var colour = "rgb(255, 255, 255)";
 var i = 0;
@@ -75,18 +56,20 @@ function myTimer(){
 	var diffMin = Math.ceil(timeDiff / (1000 * 60))%60;
 	var diffSec = Math.ceil(timeDiff / (1000))%60;
   document.getElementById("timer").innerHTML= "Štoparica moje starosti: "+diffDays + "d " + diffHrs + "h "+diffMin+"m " +diffSec + "s";
+  document.getElementById("timer2").innerHTML= "Štoparica moje starosti: "+diffDays + "d " + diffHrs + "h "+diffMin+"m " +diffSec + "s";
 }
 
 var myTimeR = setInterval(myTimer, 1000);
 
 var allTheTables = [];
 function addDataToTable(event){
+  console.log(document.cookie);
   var myTable = document.getElementById("mizaInformacij");
   var inputss = [];
   inputss.push(window.prompt("Vnesite ime",""));
   inputss.push(window.prompt("Vensite predmet",""));
   inputss.push(window.prompt("Vnesite oceno",""));
-  if(inputss[0] === "" || inputss[1] === "" || inputss[2] === ""){
+  if(!inputss || inputss[0] === "" || inputss[1] === "" || inputss[2] === ""){
     alert("Neveljaven vnos!");
     return;
   } else {
@@ -95,20 +78,27 @@ function addDataToTable(event){
       var cell2 = myRow.insertCell(1).innerHTML = inputss[1];
       var cell3 = myRow.insertCell(2).innerHTML = inputss[2];
   }
-  var i;
-  for(i = 0; i < myTable.rows.length; i++){
-    console.log(myTable.innerHTML);
-  }
-  var jsTable = JSON.stringify(myTable.innerHTML);
-  jsTable.replace('\n', '');
-  jsTable.replace('\t', '');
-  console.log(jsTable);
-  setCookie("myTable", myTable.innerHTML, 2);
 }
 
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+function loadCookies(){
+  var myTable = document.getElementById("mizaInformacij");
+  var x = document.cookie;
+  if(x == "jsTable=/jsTable" || x == "jsTable=") {
+    x = "jsTable=" + myTable.innerHTML + "/jsTable;";
+  }
+  var pt1 = x.split("jsTable=")[1].toString();
+  var pt2 = pt1.split("/jsTable")[0];
+  var myTable = document.getElementById("mizaInformacij");
+  myTable.innerHTML = pt2+"";
 }
+
+window.addEventListener("beforeunload", function(e){
+  console.log(document.cookie);
+  var myTable = document.getElementById("mizaInformacij");
+  var jsTable = myTable.innerHTML;
+  console.log(jsTable);
+  document.cookie = "jsTable=" + jsTable + "/jsTable;";
+  console.log("TABLE" + document.cookie);
+}, false);
+
+loadCookies();

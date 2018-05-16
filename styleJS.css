@@ -80,7 +80,7 @@ a {
 	position:static;
 	background:hsl(220, 100%, 60%);
 }
-#meni1 .fbContact, #meni2 .fbContact {
+#meni1 .mojaStarost, #meni2 .mojaStarost {
 	grid-column:4/5;
 	font-size:150%;
 	text-align:left;
