@@ -1,0 +1,252 @@
+* {
+	font-family:Arial, Helvetica, sans-serif !important;
+	padding:0%;
+	margin:0%;
+}
+
+
+body {
+	top:0px;
+	min-height:100%;
+	background:#EAEAEA;
+}
+
+a {
+	text-decoration:none;
+}
+
+
+/*Meni*/
+.dropgumb {
+	height:inherit;
+	color:white;
+	cursor:pointer;
+	height:3em;
+}
+.dropmeni-content {
+	z-index:1;
+	list-style-type: none;
+	background-color:white;
+	display:none;
+	padding: 0;
+	margin:0;
+	padding-left:72px;
+	text-align:left;
+	padding-top:0.5em;
+	box-shadow: 3px 10px 16px 3px rgba(0,0,0,0.2);
+	height:5em;
+}
+.dropmeni:hover .dropmeni-content {
+	z-index:1;
+	display:grid;
+	grid-template-rows:1fr 1fr 1fr;
+}
+.dropmeni:hover .dropgumb{
+	background:hsl(216, 90%, 40%);
+}
+.dropmeni-content a {
+	color: black;
+
+}
+
+#meni1, #meni2 {
+	z-index:1;
+	display:grid;
+	grid-template-columns:1fr 1fr 1fr 1fr;
+	background-color:white;
+	max-height:3em ; /*pusti pri miru*/
+	vertical-align:middle;
+}
+#meni2 {
+	display:none;
+}
+
+#meni1 .javaSLink, #meni2 .javaSLink {
+	grid-column:2/3;
+	font-size:150%;
+	text-align:left;
+	background:rgb(244, 160, 41);
+}
+
+#meni1 .fbContact, #meni2 .fbContact {
+	grid-column:3/4;
+	font-size:150%;
+	text-align:left;
+}
+
+#meni1 .dropmeni, #meni2 .dropmeni {
+	grid-column:1/2;
+	z-index:1;
+	position:static;
+	background:hsl(220, 100%, 60%);
+}
+#meni1 .instaContact, #meni2 .instaContact {
+	grid-column:4/5;
+	font-size:150%;
+	text-align:left;
+}
+
+.menuText {
+	display:inline-block;
+	color:black;
+}
+
+.dropgumb p {
+	font-size:150%;
+	text-align:left;
+	padding-left:3em;
+	padding-bottom:1em;
+}
+
+.menuPic {
+	margin-left:1em;
+	width:1.7em;
+	height:1.7em;
+}
+
+
+/*Slika*/
+.bgSlikaHeader {
+	position:absolute;
+	background: #100 url("https://images.pexels.com/photos/56832/road-asphalt-space-sky-56832.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
+	background-position:center;
+	background-repeat:no-repeat;
+	margin-top: 0px;
+	background-size: cover;
+	width: 100%;
+	height:300px;
+	margin-bottom:0%;
+	z-index:-1;
+	opacity:0.4;
+}
+
+.header {
+	min-height: 300px;
+}
+/*Tekst*/
+#naslov {
+	padding-top:100px;
+	height:70px;
+	font-size:250%;
+	width:100%;
+	text-align:center;
+	text-indent: 4%;
+	padding-top:125px;
+}
+#besedilo h1  {
+	background-color:hsl(220, 100%, 85%);
+	position:relative;
+	left:7%;
+	right:7%;
+	width:86%;
+	font-family:Tahoma;
+	font-size:240%;
+	text-align:center;
+	margin:0.5em 0;
+	border-radius: 5% / 40%;
+}
+
+#besedilo {
+	margin:1em 6em;
+}
+
+#mizaJezikov{
+	margin-top:1em;
+	border-collapse:collapse;
+	border: 1px solid black;
+}
+
+#mizaJezikov th{
+	text-align:center;
+	/*border-collapse:collapse;
+	border-bottom: 1px solid black;*/
+}
+
+#mizaJezikov td{
+	padding-left:1em;
+	/*border-collapse:collapse;
+	border: 1px solid black;*/
+}
+
+#mizaJezikov tr:nth-child(odd){
+	background-color:#CCCCCC
+}
+
+#mizaJezikov tr:nth-child(even){
+	background-color:#EEEEEE
+}
+
+#mizaJezikov .tablePicture {
+	display:inline;
+	height:2em;
+}
+
+#hobbiePics {
+	margin-top:1em;
+	display:grid;
+	grid-template-columns:20fr 1fr 20fr 1fr 20fr;
+	background-color:#EAEAEA;
+}
+
+#hbp1 {
+	grid-column:1/2;
+	box-shadow:0 10px 10px 0 #DEDEDE;
+}
+
+#hbp2 {
+	grid-column:3/4;
+	box-shadow:0 10px 10px 0 #DEDEDE;
+}
+
+#hbp3 {
+	grid-column:5/6;
+	box-shadow:0 10px 10px 0 #DEDEDE;
+}
+
+.hbpic {
+	height:300px;
+	width:100%;
+	filter: grayscale(80%);
+}
+
+#educationPics {
+	margin-top:1em;
+	display:grid;
+	grid-template-columns:9fr 1fr 4fr 1fr 4fr;
+	background-color:#EAEAEA;
+}
+
+#edp1 {
+	grid-column:1/2;
+	box-shadow:0 10px 10px 0 #DEDEDE;
+	background-color:white;
+}
+
+#edp2 {
+	grid-column:3/4;
+	box-shadow:0 10px 10px 0 #DEDEDE;
+	background-color:white;
+}
+
+#edp3 {
+	grid-column:5/6;
+	box-shadow:0 10px 10px 0 #DEDEDE;
+	background-color:white;
+}
+
+.edpic {
+	height:300px;
+	width:100%;
+}
+
+#konec {
+	display:grid;
+	grid-template-columns:1fr 1fr;
+	width:100%;
+	background-color:hsl(220, 100%, 85%);
+	text-align:center;
+	padding:2em 0;
+}
+#konec p{
+	font-size:130%
+}

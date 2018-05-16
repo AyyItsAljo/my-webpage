@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styleJS.css">
+		<title>Moja stran</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta charset="UTF-8">
+	</head>
+	<body onscroll="switchToHover();">
+		<div class="bgSlikaHeader"></div>
+		<div class="header">
+			<h1 id="naslov" style="color:white;">Aljaž Medič</h1>
+		</div>
+		<div id="meni1">
+			<!--Dropdown-->
+			<div class="dropmeni">
+				<div class="dropgumb"><p>Meni</p></div>
+				<ul class="dropmeni-content">
+					<a href="#meni1"><li>Uporaba</li></a>
+					<a href="#scriptJmp"><li>Tabela</li></a>
+					<a href="#education"><li>Koda</li></a>
+				</ul>
+			</div>
+			<a href="index.html">
+				<div class="javaSLink">
+					<img alt="JS logo" class="menuPic" style="margin-top:0.03em; " src="http://pluspng.com/img-png/javascript-logo-vector-png-java-script-js-logo-format-ai-213.png" />
+					<p class="menuText"> Povratek </p>
+				</div>
+			</a>
+			<a href="https://www.w3schools.com/" target="_blank">
+				<div class="w3link">
+					<img alt="W3 Schools" class="menuPic" style="width:7em !important"src="https://www.intertech.com/Blog/wp-content/uploads/2015/07/w3schools-logo-1.png" />
+					<p class="menuText">W3 Schools</p>
+				</div>
+			</a>
+			<a>
+				<div class="fbContact">
+					<!--img alt="FB logo" class="menuPic" target="_blank" src="https://www.facebook.com/images/fb_icon_325x325.png" /-->
+					<p id="timer">Štoparica moje starosti: 0d 0h 0m 0s</p>
+				</div>
+			</a>
+		</div>
+		<div id="meni2">
+			<!--Dropdown-->
+			<div id="dropmeni2" class="dropmeni">
+				<div class="dropgumb"><p>Meni</p></div>
+					<ul class="dropmeni-content">
+						<a href="#meni1"><li>Uporaba</li></a>
+						<a href="#scriptJmp"><li>Tabela</li></a>
+						<a href="#education"><li>Koda</li></a>
+				</ul>
+			</div>
+			<a href="index.html">
+				<div class="javaSLink" style="background-color:rgb(247, 198, 19);">
+					<img alt="JS logo" class="menuPic" style="margin-top:0.03em; " src="http://pluspng.com/img-png/javascript-logo-vector-png-java-script-js-logo-format-ai-213.png" />
+					<p class="menuText"> Povratek </p>
+				</div>
+			</a>
+			<a href="https://www.w3schools.com/" target="_blank">
+				<div class="w3link">
+					<img alt="W3 Schools" class="menuPic" style="width:7em !important"src="https://www.intertech.com/Blog/wp-content/uploads/2015/07/w3schools-logo-1.png" />
+					<p class="menuText">W3 Schools</p>
+				</div>
+			</a>
+			<a href="https://www.facebook.com/aljaz.medic.9" target="_blank">
+				<div class="fbContact">
+					<img alt="FB logo" class="menuPic" target="_blank" src="https://www.facebook.com/images/fb_icon_325x325.png" />
+					<p class="menuText">Facebook</p>
+				</div>
+			</a>
+		</div>
+		<div id="besedilo">
+			<div id="usage">
+				<h1>Uporaba</h1>
+				<div class="slideshow-container">
+	  <!-- Full-width images with number and caption text -->
+				  <div class="mySlides fade">
+				    <div class="numbertext">1 / 3</div>
+				    <img class="slidePic" src="https://images.pexels.com/photos/34950/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=750&w=1260" style="width:100%">
+				    <div class="text">Korak 1</div>
+				  </div>
+
+				  <div class="mySlides fade">
+				    <div class="numbertext">2 / 3</div>
+				    <img class="slidePic" src="https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" style="width:100%">
+				    <div class="text">Korak 2</div>
+				  </div>
+
+				  <div class="mySlides fade">
+				    <div class="numbertext">3 / 3</div>
+				    <img class="slidePic" src="https://images.pexels.com/photos/87452/flowers-background-butterflies-beautiful-87452.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" style="width:100%">
+				    <div class="text">Korak 3</div>
+				  </div>
+				  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+				  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+				</div>
+				<br>
+				<!-- The dots/circles -->
+				<div style="text-align:center">
+				  <span class="dot" onclick="currentSlide(1)"></span>
+				  <span class="dot" onclick="currentSlide(2)"></span>
+				  <span class="dot" onclick="currentSlide(3)"></span>
+				</div>
+			</div>
+			<div id="scriptJmp"></div>
+			<div id="scriptOnPage">
+				<h1>Tabela s piškotki</h1>
+				<table id="mizaInformacij">
+					<tr>
+						<th>Ime</th>
+						<th>Predmet</th>
+						<th>Ocena</th>
+					</tr>
+				</table>
+				<input id="addButton" type="submit" value="Dodaj vnos" onclick="addDataToTable(event);"/>
+			</div>
+		</div>
+		<div id="konec">
+			<p>Made by</br>Aljaž Medič</p>
+			<p  style="font-size:110%;">aljaz.medic@gmail.com </br> 030 377 623</p>
+		</div>
+	</body>
+	<script src="scriptJS.js"></script>
+</html>
