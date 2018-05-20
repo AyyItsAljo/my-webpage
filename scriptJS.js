@@ -63,7 +63,6 @@ var myTimeR = setInterval(myTimer, 1000);
 
 var allTheTables = [];
 function addDataToTable(event){
-  console.log(document.cookie);
   var myTable = document.getElementById("mizaInformacij");
   var inputss = [];
   inputss.push(window.prompt("Vnesite ime",""));
@@ -78,27 +77,64 @@ function addDataToTable(event){
       var cell2 = myRow.insertCell(1).innerHTML = inputss[1];
       var cell3 = myRow.insertCell(2).innerHTML = inputss[2];
   }
+  console.log("Button add log: \r\n" + myTable.innerHTML.replace(/\r?\n|\r|\t/g,''));
 }
 
 function loadCookies(){
+  console.log("Cookies loaded");
   var myTable = document.getElementById("mizaInformacij");
-  var x = document.cookie;
-  if(x == "jsTable=/jsTable" || x == "jsTable=") {
-    x = "jsTable=" + myTable.innerHTML + "/jsTable;";
+  var x = getCookie("myTableData");
+  if(x == ""){
+    setCookie("myTableData", myTable.innerHTML+"", 2);
+  }else{
+    myTable.innerHTML = x + "";
   }
-  var pt1 = x.split("jsTable=")[1].toString();
-  var pt2 = pt1.split("/jsTable")[0];
-  var myTable = document.getElementById("mizaInformacij");
-  myTable.innerHTML = pt2+"";
 }
 
 window.addEventListener("beforeunload", function(e){
-  console.log(document.cookie);
-  var myTable = document.getElementById("mizaInformacij");
-  var jsTable = myTable.innerHTML;
-  console.log(jsTable);
-  document.cookie = "jsTable=" + jsTable + "/jsTable;";
-  console.log("TABLE" + document.cookie);
+  var jsTable = document.getElementById("mizaInformacij").innerHTML;
+  setCookie("myTableData", jsTable, 2);
 }, false);
+
+function setCookie(cname, cvalue, exdays) {
+    var cvalue2 = cvalue.replace(/\r?\n|\r|\t/g,'');
+    cvalue2 = cvalue2.replace(";", "_$emi€olon");
+    if(document.cookie.indexOf(getCookie(cname)) >= 0){
+      document.cookie = document.cookie.replace(getCookie(cname), cvalue2);
+      return;
+    }
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue2 + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          var cookie_ = c.substring(name.length, c.length);
+          cookie_ = cookie_.replace("_$emi€olon", ";");
+          return cookie_;
+        }
+    }
+    return "";
+}
+
+function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+}
 
 loadCookies();
