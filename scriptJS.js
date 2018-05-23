@@ -48,7 +48,7 @@ function showSlides(n) {
 
 
 function myTimer(){
-	var d = new Date("2011-04-20T15:30:51.01");
+	var d = new Date("2001-05-18T15:30:51.01");
 	var cd = new Date();
 	var timeDiff = cd.getTime() - d.getTime();
 	var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
@@ -80,12 +80,19 @@ function addDataToTable(event){
   console.log("Button add log: \r\n" + myTable.innerHTML.replace(/\r?\n|\r|\t/g,''));
 }
 
+function refreshTable(event){
+	var myTable = document.getElementById("mizaInformacij");
+	myTable.innerHTML = "<tbody><tr><th>Ime</th><th>Predmet</th><th>Ocena</th></tr></tbody>";
+	deleteAllCookies();
+}
+
 function loadCookies(){
   console.log("Cookies loaded");
   var myTable = document.getElementById("mizaInformacij");
   var x = getCookie("myTableData");
   if(x == ""){
     setCookie("myTableData", myTable.innerHTML+"", 2);
+	console.log(getCookie("myTableData"));
   }else{
     myTable.innerHTML = x + "";
   }
@@ -99,7 +106,7 @@ window.addEventListener("beforeunload", function(e){
 function setCookie(cname, cvalue, exdays) {
     var cvalue2 = cvalue.replace(/\r?\n|\r|\t/g,'');
     cvalue2 = cvalue2.replace(";", "_$emi€olon");
-    if(document.cookie.indexOf(getCookie(cname)) >= 0){
+    if(document.cookie.indexOf(getCookie(cname)) >= 0 && document.cookie.indexOf(cname) >= 0){
       document.cookie = document.cookie.replace(getCookie(cname), cvalue2);
       return;
     }
