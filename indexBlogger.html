@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+  <head>
+    <meta charset='UTF-8'/>
+    <title>
+      Moja stran
+    </title>
+    <meta content='width=device-width,initial-scale=1' name='viewport'/>
+	<b:skin><![CDATA[
+		* {
+              font-family:Arial, Helvetica, sans-serif !important;
+              padding:0%;
+              margin:0%;
+          }
+
+
+          body {
+              top:0px;
+              min-height:100%;
+              background:#EAEAEA;
+          }
+
+          a {
+              text-decoration:none;
+          }
+
+
+          /*Meni*/
+          .dropgumb {
+              height:inherit;
+              color:white;
+              cursor:pointer;
+              height:3em;
+          }
+          .dropmeni-content {
+              z-index:1;
+              list-style-type: none;
+              background-color:white;
+              display:none;
+              padding: 0;
+              margin:0;
+              padding-left:72px;
+              text-align:left;
+              padding-top:0.5em;
+              box-shadow: 3px 10px 16px 3px rgba(0,0,0,0.2);
+              height:5em;
+          }
+          .dropmeni:hover .dropmeni-content {
+              z-index:1;
+              display:grid;
+              grid-template-rows:1fr 1fr 1fr;
+          }
+          .dropmeni:hover .dropgumb{
+              background:hsl(216, 90%, 40%);
+          }
+          .dropmeni-content a {
+              color: black;
+
+          }
+
+          #meni1, #meni2 {
+              z-index:1;
+              display:grid;
+              grid-template-columns:1fr 1fr 1fr 1fr;
+              background-color:white;
+              max-height:3em ; /*pusti pri miru*/
+              vertical-align:middle;
+          }
+          #meni2 {
+              display:none;
+          }
+
+          #meni1 .javaSLink, #meni2 .javaSLink {
+              grid-column:2/3;
+              font-size:150%;
+              text-align:left;
+              background:rgb(244, 160, 41);
+          }
+
+          #meni1 .fbContact, #meni2 .fbContact {
+              grid-column:3/4;
+              font-size:150%;
+              text-align:left;
+          }
+
+          #meni1 .dropmeni, #meni2 .dropmeni {
+              grid-column:1/2;
+              z-index:1;
+              position:static;
+              background:hsl(220, 100%, 60%);
+          }
+          #meni1 .instaContact, #meni2 .instaContact {
+              grid-column:4/5;
+              font-size:150%;
+              text-align:left;
+          }
+
+          .menuText {
+              display:inline-block;
+              color:black;
+          }
+
+          .dropgumb p {
+              font-size:150%;
+              text-align:left;
+              padding-left:3em;
+              padding-bottom:1em;
+          }
+
+          .menuPic {
+              margin-left:1em;
+              width:1.7em;
+              height:1.7em;
+          }
+
+
+          /*Slika*/
+          .bgSlikaHeader {
+              position:absolute;
+              background: #100 url("https://images.pexels.com/photos/56832/road-asphalt-space-sky-56832.jpeg");
+              background-position:center;
+              background-repeat:no-repeat;
+              margin-top: 0px;
+              background-size: cover;
+              width: 100%;
+              height:300px;
+              margin-bottom:0%;
+              z-index:-1;
+              opacity:0.4;
+          }
+
+          .header {
+              min-height: 300px;
+          }
+          /*Tekst*/
+          #naslov {
+              padding-top:100px;
+              height:70px;
+              font-size:250%;
+              width:100%;
+              text-align:center;
+              text-indent: 4%;
+              padding-top:125px;
+          }
+          #besedilo h1  {
+              background-color:hsl(220, 100%, 85%);
+              position:relative;
+              left:7%;
+              right:7%;
+              width:86%;
+              font-family:Tahoma;
+              font-size:240%;
+              text-align:center;
+              margin:0.5em 0;
+              border-radius: 5% / 40%;
+          }
+
+          #besedilo {
+              margin:1em 6em;
+          }
+
+          #mizaJezikov{
+              margin-top:1em;
+              border-collapse:collapse;
+              border: 1px solid black;
+          }
+
+          #mizaJezikov th{
+              text-align:center;
+              /*border-collapse:collapse;
+              border-bottom: 1px solid black;*/
+          }
+
+          #mizaJezikov td{
+              padding-left:1em;
+              /*border-collapse:collapse;
+              border: 1px solid black;*/
+          }
+
+          #mizaJezikov tr:nth-child(odd){
+              background-color:#CCCCCC
+          }
+
+          #mizaJezikov tr:nth-child(even){
+              background-color:#EEEEEE
+          }
+
+          #mizaJezikov .tablePicture {
+              display:inline;
+              height:2em;
+          }
+
+          #hobbiePics {
+              margin-top:1em;
+              display:grid;
+              grid-template-columns:20fr 1fr 20fr 1fr 20fr;
+              background-color:#EAEAEA;
+          }
+
+          #hbp1 {
+              grid-column:1/2;
+              box-shadow:0 10px 10px 0 #DEDEDE;
+          }
+
+          #hbp2 {
+              grid-column:3/4;
+              box-shadow:0 10px 10px 0 #DEDEDE;
+          }
+
+          #hbp3 {
+              grid-column:5/6;
+              box-shadow:0 10px 10px 0 #DEDEDE;
+          }
+
+          .hbpic {
+              height:300px;
+              width:100%;
+              filter: grayscale(80%);
+          }
+
+          #educationPics {
+              margin-top:1em;
+              display:grid;
+              grid-template-columns:9fr 1fr 4fr 1fr 4fr;
+              background-color:#EAEAEA;
+          }
+
+          #edp1 {
+              grid-column:1/2;
+              box-shadow:0 10px 10px 0 #DEDEDE;
+              background-color:white;
+          }
+
+          #edp2 {
+              grid-column:3/4;
+              box-shadow:0 10px 10px 0 #DEDEDE;
+              background-color:white;
+          }
+
+          #edp3 {
+              grid-column:5/6;
+              box-shadow:0 10px 10px 0 #DEDEDE;
+              background-color:white;
+          }
+
+          .edpic {
+              height:300px;
+              width:100%;
+          }
+
+          #konec {
+              display:grid;
+              grid-template-columns:1fr 1fr;
+              width:100%;
+              background-color:hsl(220, 100%, 85%);
+              text-align:center;
+              padding:2em 0;
+          }
+          #konec p{
+              font-size:130%
+          }
+    ]]></b:skin>
+  </head>
+  <body onscroll='switchToHover();'>
+    <div class='bgSlikaHeader'>
+    </div>
+    <div class='header'>
+      <h1 id='naslov'>
+        Aljaž Mediè
+      </h1>
+    </div>
+    <div id='meni1'>
+      <!--Dropdown-->
+      <div class='dropmeni'>
+        <div class='dropgumb'>
+          <p>
+            Meni
+          </p>
+        </div>
+        <ul class='dropmeni-content'>
+          <a href='#meni1'>
+            <li>
+              O meni
+            </li>
+          </a>
+          <a href='#hbyJmp'>
+            <li>
+              Hobiji
+            </li>
+          </a>
+          <a href='#education'>
+            <li>
+              Izobrazba
+            </li>
+          </a>
+        </ul>
+      </div>
+      <a href='indexJS.html'>
+        <div class='javaSLink'>
+          <img alt='JS logo' class='menuPic' src='http://pluspng.com/img-png/javascript-logo-vector-png-java-script-js-logo-format-ai-213.png' style='margin-top:0.03em; '/>
+          <p class='menuText'>
+            JavaScript 
+          </p>
+        </div>
+      </a>
+      <a href='https://www.facebook.com/aljaz.medic.9' target='_blank'>
+        <div class='fbContact'>
+          <img alt='FB logo' class='menuPic' src='https://www.facebook.com/images/fb_icon_325x325.png'/>
+          <p class='menuText'>
+            Facebook
+          </p>
+        </div>
+      </a>
+      <a href='https://www.instagram.com/aljo268/' target='_blank'>
+        <div class='instaContact'>
+          <img alt='Instagram logo' class='menuPic' src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2000px-Instagram_logo_2016.svg.png' target='_blank'/>
+          <p class='menuText'>
+            Instagram
+          </p>
+        </div>
+      </a>
+    </div>
+    <div id='meni2'>
+      <!--Dropdown-->
+      <div class='dropmeni' id='dropmeni2'>
+        <div class='dropgumb'>
+          <p>
+            Meni
+          </p>
+        </div>
+        <ul class='dropmeni-content'>
+          <a href='#meni1'>
+            <li>
+              O meni
+            </li>
+          </a>
+          <a href='#hbyJmp'>
+            <li>
+              Hobiji
+            </li>
+          </a>
+          <a href='#education'>
+            <li>
+              Izobrazba
+            </li>
+          </a>
+        </ul>
+      </div>
+      <a href='indexJS.html'>
+        <div class='javaSLink'>
+          <img alt='JS logo' class='menuPic' src='http://pluspng.com/img-png/javascript-logo-vector-png-java-script-js-logo-format-ai-213.png' style='margin-top:0.03em; '/>
+          <p class='menuText'>
+            JavaScript 
+          </p>
+        </div>
+      </a>
+      <a href='https://www.facebook.com/aljaz.medic.9' target='_blank'>
+        <div class='fbContact'>
+          <img alt='FB logo' class='menuPic' src='https://www.facebook.com/images/fb_icon_325x325.png' target='_blank'/>
+          <p class='menuText'>
+            Facebook
+          </p>
+        </div>
+      </a>
+      <a href='https://www.instagram.com/aljo268/' target='_blank'>
+        <div class='instaContact'>
+          <img alt='Instagram logo' class='menuPic' src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2000px-Instagram_logo_2016.svg.png' target='_blank'/>
+          <p class='menuText'>
+            Instagram
+          </p>
+        </div>
+      </a>
+    </div>
+    <div id='besedilo'>
+      <div id='me'>
+        <h1>
+          Kdo sem
+        </h1>
+        <p>
+          Sem dijak drugega letnika strokovne gimnazije v Kranju, star sem 16 let.
+          V drugem letniku sem se odloèil za smer raèunalništva, ker me navdušuje
+          reševanje problemov, s katerimi se programerji sreèujemo. V spodnji tabeli
+          so prikazani programski jeziki, ki sem jih spoznal tekom mojega izobraževanja
+          in delovanja na podroèju raèunalništva.
+        </p>
+        <table id='mizaJezikov'>
+          <tr>
+            <th>
+              Programski jezik
+            </th>
+            <th>
+              Èas ukvarjanja
+            </th>
+            <th>
+              Opis
+            </th>
+          </tr>
+          <tr>
+            <td>
+              Batch 
+              <br/>
+              <img alt='CMD picture' class='tablePicture' src='http://steve-jansen.github.io/images/2013-03-03-B.png'/>
+            </td>
+            <td>
+              4 let
+            </td>
+            <td>
+              Batch je jezik ukazne vrstice v windowsovem OS, vendar mi je pri zaèetnem razumevanju programiranja pomagala njegova preprostost in razumljivost kode
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Pascal 
+              <br/>
+              <img alt='Pascal picture' class='tablePicture' src='http://www.linuxfocus.org/common/images2/article356/fpc.jpg'/>
+            </td>
+            <td>
+              3.5 let
+            </td>
+            <td>
+              Po zaèetkih z Batchom sem znanje prenesel na preprost programski jezik
+              Pascal. Tukaj še nisem poznal funkcij in objektov, spoznal pa sem vse
+              zanke in pogojne stavke.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Visual Basic 
+              <br/>
+              <img alt='VB picture' class='tablePicture' src='http://www.onlineustaad.com/wp-content/uploads/2013/05/visual-basic-in-urdu1.png'/>
+            </td>
+            <td>
+              3 leta
+            </td>
+            <td>
+              Do VB sem prišel preko Excela, kjer lahko v Visual Basicu pišemo svoje funkcije za množièno obdelavo podatkov.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              C++  
+              <br/>
+              <img alt='C++ picture' class='tablePicture' src='https://www.onlinebooksreview.com/uploads/blog_images/2017/07//13_c--logo-icon-6.png'/>
+            </td>
+            <td>
+              3 leta
+            </td>
+            <td>
+              Zaradi podobnosti z Visual Basicom sem zelo hitro osvojil tudi ta
+              programski jezik.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Java 
+              <br/>
+              <img alt='Java picture' class='tablePicture' src='https://seeklogo.com/images/J/java-logo-41D4155FC3-seeklogo.com.png'/>
+            </td>
+            <td>
+              1 leto
+            </td>
+            <td>
+              Šele tu sem se nauèil o objektih, metodah, lastnostih in funkcijah.
+              Trenutno je moj najbolj uporabljen jezik.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              C# 
+              <br/>
+              <img alt='C# picture' class='tablePicture' src='https://marketplace.eclipse.org/sites/default/files/csharp.png'/>
+            </td>
+            <td>
+              0.5 leta
+            </td>
+            <td>
+              Ta jezik sem zaèel spoznavati pri obiskih Unity krožka;
+              tam sta na opcijo JavaScript in C#, mi smo se odloèili za slednjega.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              JavaScript 
+              <br/>
+              <img alt='JS picture' class='tablePicture' src='http://pluspng.com/img-png/javascript-logo-vector-png-java-script-js-logo-format-ai-213.png'/>
+            </td>
+            <td>
+              0.5 leta
+            </td>
+            <td>
+              Moj zadnji jezik, katerega se želim kar najbolje nauèiti,
+              saj je praktièno zelo uporaben; od spletnih strani,
+              do programiranja aplikacij. Ima tudi unikatno lastnost;
+              vse spremenljivke so tipa JSON, tako da nam ni potrebno skrbeti
+              za inicializacijo pravega tipa.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              HTML/CSS 
+              <br/>
+              <img alt='HTML picture' class='tablePicture' src='https://d7zgbk06ve7c.cloudfront.net/assets/55884/qg1q5raby9bhlm7u72s1/html_css.png'/>
+            </td>
+            <td>
+              0.2 leta
+            </td>
+            <td>
+              HTML sem se zaèel uèiti, ko smo za nalogo morali
+              narediti spletno stran. Tam sem se prav tako nauèil CSS,
+              pomagalo pa mi je predhodno znanje JavaScripta.
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id='hbyJmp'>
+      </div>
+      <b:section id='SredinaZaslona' maxwidgets='1'/>
+      <div id='hobbies'>
+        <h1>
+          Moji hobiji
+        </h1>
+        <p>
+          Poleg programiranja se rad ukvarjam tudi z ostalimi reèmi.
+          Sem spadajo igranje rokometa, ki sem ga tudi treniral 5 let.
+          Po zakluèku treniranja sem se sam zaèel ukvarjati z rekreacijo
+          in treningi v fitnesu. Zakljuèil sem glasbeno šolo na klavirski
+          harmoniki, kjer sem uspešno zakljuèil 8 let izobraževanja. 
+        </p>
+        <div id='hobbiePics'>
+          <div id='hbp1'>
+            <img alt='Accordion' class='hbpic' src='https://static.pexels.com/photos/163823/accordion-musical-instrument-handzuginstrument-musician-163823.jpeg'/>
+          </div>
+          <div id='hbp2'>
+            <img alt='Handball' class='hbpic' src='http://s2.dmcdn.net/gp_Vq.jpg'/>
+          </div>
+          <div id='hbp3'>
+            <img alt='Fitness' class='hbpic' src='https://static.pexels.com/photos/685530/pexels-photo-685530.jpeg'/>
+          </div>
+        </div>
+      </div>
+      <div id='education'>
+        <h1>
+          Izobrazba
+        </h1>
+        <p>
+          Svojo izobrazbo sem prièel na devetletni osnovni šoli
+          Antona Tomaža Linharta v Radovljici. Zakljuèil sem jo z
+          odliènim uspehom. Izobraževanje nadaljujem na strokovni
+          gimnaziji na Šolskem Centru Kranj. Nadaljna izobrazba bo
+          precej vrjetno potekala na Fakulteti za Raèunalništvo in
+          Informatiko.
+        </p>
+        <div id='educationPics'>
+          <div id='edp1' style='text-align:center; vertical-align:middle;'>
+            <img alt='OŠ ATL' class='edpic' src='http://www.os-atl.si/wp-content/uploads/2014/11/logo_atl.png' style='width:50%;height:50%;'/>
+          </div>
+          <div id='edp2'>
+            <img alt='ŠC Kranj' class='edpic' src='http://elektriada.sckr.si/img/sckr-alfa-480.png'/>
+          </div>
+          <div id='edp3'>
+            <img alt='FRI' class='edpic' src='https://upload.wikimedia.org/wikipedia/commons/3/3d/Logo_UL_FRI.jpg'/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id='konec'>
+      <p>
+        Made by
+        <br/>
+        Aljaž Mediè
+      </p>
+      <p style='font-size:110%;'>
+        aljaz.medic@gmail.com 
+        <br/>
+        030 377 623
+      </p>
+    </div>
+  </body>
+  <script src='script.js'>
+  </script>
+</html>
